@@ -1,0 +1,6 @@
+com\myblog\tomaseuliarte\Repository\AcercaDeRepository.class
+com\myblog\tomaseuliarte\service\AcercaDeService.class
+com\myblog\tomaseuliarte\Model\AcercaDe.class
+com\myblog\tomaseuliarte\service\IAcercaDeService.class
+com\myblog\tomaseuliarte\Controller\Controller.class
+com\myblog\tomaseuliarte\TomaseuliarteApplication.class
