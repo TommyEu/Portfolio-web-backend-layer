@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@CrossOrigin("http://localhost:4200/")
+@CrossOrigin("https://myblog-eac9f.web.app/")
 public class AcercaDeController {
     @Autowired
     private IAcercaDeService infoServ;
