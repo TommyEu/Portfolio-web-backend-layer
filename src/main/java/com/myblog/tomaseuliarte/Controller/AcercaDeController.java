@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/acercade")
-@CrossOrigin(origins = {"https://myblog-eac9f.web.app", "localhost:4200"})
+@CrossOrigin(origins = {"https://myblog-eac9f.web.app", "http://localhost:4200"})
 public class AcercaDeController {
     @Autowired
     private IAcercaDeService infoServ;
