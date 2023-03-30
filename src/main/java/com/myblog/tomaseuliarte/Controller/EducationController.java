@@ -5,7 +5,7 @@
 package com.myblog.tomaseuliarte.Controller;
 
 import com.myblog.tomaseuliarte.Model.Education;
-import com.myblog.tomaseuliarte.service.EducationService;
+import com.myblog.tomaseuliarte.service.IEducationService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,10 +27,10 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"https://myblog-eac9f.web.app", "http://localhost:4200"})
 public class EducationController {
     @Autowired
-    public EducationService eduServ;
+    private IEducationService eduServ;
     
     @PostMapping("/new/education")
-    public void crearEducation(Education edu){
+    public void crearEducation(@RequestBody Education edu){
         eduServ.createEducation(edu);
     }
     @GetMapping("/traer/lista-education")
@@ -37,7 +38,7 @@ public class EducationController {
         return eduServ.readAllEducation();
     }
     @PutMapping("/edit/education")
-    public void editarEducation(Education edu){
+    public void editarEducation(@RequestBody Education edu){
         eduServ.updateEducation(edu);
     }   
     @DeleteMapping("/delete/{id}")
