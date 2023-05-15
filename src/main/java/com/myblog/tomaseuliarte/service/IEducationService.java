@@ -15,7 +15,7 @@ import java.util.List;
 public interface IEducationService {
     public void createEducation(Education edu);
     public List<Education> readAllEducation();
-    public void updateEducation(Education edu);
+    public void updateEducation(Long id);
     public void deleteInfo(Long id);
     
 }

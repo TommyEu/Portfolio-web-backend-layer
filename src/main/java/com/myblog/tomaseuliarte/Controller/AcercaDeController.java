@@ -25,7 +25,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 @RequestMapping("/acercade")
-@CrossOrigin(origins = {"https://myblog-eac9f.firebaseapp.com", "https://myblog-eac9f.web.app", "http://localhost:4200"})
+//@CrossOrigin(origins = {"https://myblog-eac9f.firebaseapp.com", "https://myblog-eac9f.web.app", "http://localhost:4200"})
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class AcercaDeController {
     @Autowired
     private IAcercaDeService infoServ;
@@ -37,15 +38,18 @@ public class AcercaDeController {
     }
     @GetMapping("/traer/{id}")
     public AcercaDe traerInfo(@PathVariable Long id){
+        log.info("obteniendo info...");
         return infoServ.viewInfo(id);
     }
     @DeleteMapping("/eliminar/{id}")
     public void eliminarInfo(@PathVariable Long id){
         infoServ.deleteInfo(id);
+        log.info("info borrada");
     }
     @PutMapping("/editar/{id}")
     public void editarInfo(@RequestBody AcercaDe info){
         infoServ.editInfo(info);
+        log.info("edicion exitosa");
     }
     
 }
