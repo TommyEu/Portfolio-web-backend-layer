@@ -7,6 +7,7 @@ package com.myblog.tomaseuliarte.Controller;
 import com.myblog.tomaseuliarte.Model.Education;
 import com.myblog.tomaseuliarte.service.IEducationService;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = {"https://myblog-eac9f.firebaseapp.com", "https://myblog-eac9f.web.app", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://myblog-eac9f.web.app", "http://localhost:4200"})
 
 public class EducationController {
     @Autowired
@@ -40,6 +41,11 @@ public class EducationController {
     public List<Education> traerTodosEdu(){
         log.info("trayendo lista educacion...");
         return eduServ.readAllEducation();
+    }
+    @GetMapping("/traer/{id}")
+    public Optional<Education> traerEducation(@PathVariable Long id){
+        log.info("Trayendo la entidad N° " + id);
+        return eduServ.getEducation(id);
     }
     @PutMapping("/edit/{id}")
     public void editarEducation(@PathVariable Long id){

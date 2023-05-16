@@ -7,6 +7,7 @@ package com.myblog.tomaseuliarte.service;
 import com.myblog.tomaseuliarte.Model.Education;
 import com.myblog.tomaseuliarte.Repository.EducationRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +30,10 @@ public class EducationService implements IEducationService{
     public List<Education> readAllEducation() {
         return eduRepo.findAll();
     }
-
+    @Override
+    public Optional<Education> getEducation(Long id){
+        return eduRepo.findById(id);
+    }
     @Override
     public void updateEducation(Long id) {
         eduRepo.save(eduRepo.getById(id));
