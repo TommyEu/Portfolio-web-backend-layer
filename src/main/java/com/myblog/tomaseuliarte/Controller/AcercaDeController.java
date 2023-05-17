@@ -47,7 +47,7 @@ public class AcercaDeController {
         log.info("info borrada");
     }
     @PutMapping("/editar/{id}")
-    public void editarInfo(@RequestBody AcercaDe info){
+    public void editarInfo(@PathVariable Long id, @RequestBody AcercaDe info){
         infoServ.editInfo(info);
         log.info("edicion exitosa");
     }
