@@ -46,10 +46,10 @@ public class EducationController {
     public Optional<Education> traerEducation(@PathVariable Long id){
         log.info("Trayendo la entidad N° " + id);
         return eduServ.getEducation(id);
-    }
+    }       
     @PutMapping("/edit/{id}")
-    public void editarEducation(@PathVariable Long id){
-        eduServ.updateEducation(id);
+    public void editarEducation(@PathVariable Long id, @RequestBody Education edu){
+        eduServ.updateEducation(edu);
         log.info("edición exitosa de la entidad N°" + id);
     }   
     @DeleteMapping("/delete/{id}")

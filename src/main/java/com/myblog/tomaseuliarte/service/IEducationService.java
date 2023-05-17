@@ -17,7 +17,7 @@ public interface IEducationService {
     public void createEducation(Education edu);
     public Optional<Education> getEducation(Long id);
     public List<Education> readAllEducation();
-    public void updateEducation(Long id);
+    public void updateEducation(Education edu);
     public void deleteInfo(Long id);
     
 }
