@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestMethod;
 /**
  *
  * @author titie
@@ -26,7 +27,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = {"https://myblog-eac9f.web.app", "http://localhost:4200"})
+@CrossOrigin(origins = {"https://myblog-eac9f.web.app", "http://localhost:4200/"}, maxAge = 3600,
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 
 public class EducationController {
     @Autowired
